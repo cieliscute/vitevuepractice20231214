@@ -81,11 +81,9 @@ import SupportIcon from './icons/IconSupport.vue'
     </template>
     <template #heading>Support Vue</template>
 
-    As an independent project, <span class="text-success">Vue relies</span> on community backing for its sustainability. You can help
-    us by
+    As an independent project, <span class="text-success">Vue relies</span> on community backing for
+    its sustainability. You can help us by
     <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
   </WelcomeItem>
-  <WelcomeItem>
-
-  </WelcomeItem>
+  <WelcomeItem> </WelcomeItem>
 </template>
