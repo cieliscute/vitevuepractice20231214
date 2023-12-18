@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -32,6 +31,41 @@ const router = createRouter({
           name: '新增頁面內的元件B',
           component: ()=> import('../components/ComponentB.vue')
         },
+        {
+          path: 'dynamicRouter/:id',
+          component: ()=> import('@/views/DynamicRouter.vue')
+        },
+        {
+          path: 'dynamicRouterByProps/:id',
+          component: ()=> import('@/views/DynamicRouterByProps.vue'),
+          props: (route) => {
+            console.log('route:',route);
+            return {
+              id: route.params.id
+            }
+          }
+        },
+        {
+          path: 'namedview',
+          name:'namedview',
+          component: ()=>import('@/views/NamedView.vue'),
+          children:[
+            {
+              path:'c2a',
+              components:{
+                left: ()=>import('@/components/ComponentC.vue'),
+                right: ()=>import('@/components/ComponentA.vue')
+              }
+            },
+            {
+              path:'a2b',
+              components:{
+                left: ()=>import('@/components/ComponentA.vue'),
+                right: ()=>import('@/components/ComponentB.vue')
+              }
+            }
+          ]
+        }
       ]
     }
   ]
