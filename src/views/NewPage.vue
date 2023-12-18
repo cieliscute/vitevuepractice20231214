@@ -1,26 +1,28 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div class="row py-3">
       <div class="col-3">
-        <RWDTest></RWDTest>
+        <div class="list-group">
+          <RouterLink :to="{name:'新增頁面內的元件A'}" class="list-group-item list-group-item-action" aria-current="true">
+            元件A
+          </RouterLink>
+          <RouterLink to="/newpage/b" class="list-group-item list-group-item-action">
+            元件B
+          </RouterLink>
+        </div>
       </div>
       <div class="col-9">
-        <RWDTest></RWDTest>
+        <RouterView></RouterView>
       </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-        <RWDTest></RWDTest>
     </div>
   </div>
 </template>
 
 <script>
-import RWDTest from '../components/RWDTest.vue'
+// import RWDTest from '../components/RWDTest.vue'
 export default {
-  components:{
-    RWDTest
-  } 
+  components: {
+    // RWDTest
+  }
 }
 </script>

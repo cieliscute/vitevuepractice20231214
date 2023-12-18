@@ -20,7 +20,19 @@ const router = createRouter({
     {
       path: '/newpage',
       name: '新增頁面',
-      component: () => import('../views/NewPage.vue')
+      component: () => import('../views/NewPage.vue'),
+      children: [
+        {
+          path: 'a',
+          name: '新增頁面內的元件A',
+          component: ()=> import('../components/ComponentA.vue')
+        },
+        {
+          path: 'b',
+          name: '新增頁面內的元件B',
+          component: ()=> import('../components/ComponentB.vue')
+        },
+      ]
     }
   ]
 })
