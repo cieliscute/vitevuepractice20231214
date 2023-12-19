@@ -32,6 +32,14 @@ const router = createRouter({
           component: ()=> import('../components/ComponentB.vue')
         },
         {
+          path: 'routerNavigation',
+          component: ()=> import('@/views/RouterNavigation.vue')
+        },
+        {
+          path: 'routerNavigation/:testparams',
+          component: ()=> import('@/views/RouterNavigation.vue')
+        },
+        {
           path: 'dynamicRouter/:id',
           component: ()=> import('@/views/DynamicRouter.vue')
         },
@@ -67,7 +75,17 @@ const router = createRouter({
           ]
         }
       ]
-    }
+    },
+    {
+      path:'/newPage/:pathMatch(.*)*',
+      redirect:{
+        name:'about'
+      }
+    },
+    {
+      path:'/:pathMatch(.*)*',
+      component: ()=> import('@/views/NotFound.vue')
+    },
   ]
 })
 

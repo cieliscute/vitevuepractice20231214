@@ -3,7 +3,7 @@
     <div class="row py-3">
       <div class="col-3">
         <div class="list-group">
-          <RouterLink :to="{name:'新增頁面內的元件A'}" class="list-group-item list-group-item-action" aria-current="true">
+          <RouterLink :to="{ name: '新增頁面內的元件A' }" class="list-group-item list-group-item-action" aria-current="true">
             元件A
           </RouterLink>
           <RouterLink to="/newpage/b" class="list-group-item list-group-item-action">
@@ -20,6 +20,9 @@
           </RouterLink>
           <RouterLink to="/newpage/dynamicRouterByProps/81a0b89d11fb45c2" class="list-group-item list-group-item-action">
             DynamicRouter
+          </RouterLink>
+          <RouterLink to="/newpage/routernavigation" class="list-group-item list-group-item-action">
+            RouterNavigation
           </RouterLink>
         </div>
       </div>

@@ -10,7 +10,8 @@ export default {
     }
   },
   created(){
-    let seedbyid=this.$route.params;
+    let seedbyid=this.$route.params.id;
+    console.log(seedbyid);
     // let seed='81a0b89d11fb45c2';
     axios.get(`https://randomuser.me/api/?seed=${seedbyid}`)
       .then((res)=>{
