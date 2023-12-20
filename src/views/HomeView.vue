@@ -3,8 +3,10 @@
 </script>
 
 <template>
-  123
-  <!-- <main>
-    <TheWelcome />
-  </main> -->
+  <div class="home">123</div>
 </template>
+<style scoped>
+.home{
+  min-height: 100vh;
+}
+</style>

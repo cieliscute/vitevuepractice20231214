@@ -24,30 +24,30 @@ const router = createRouter({
         {
           path: 'a',
           name: '新增頁面內的元件A',
-          component: ()=> import('../components/ComponentA.vue')
+          component: () => import('../components/ComponentA.vue')
         },
         {
           path: 'b',
           name: '新增頁面內的元件B',
-          component: ()=> import('../components/ComponentB.vue')
+          component: () => import('../components/ComponentB.vue')
         },
+        // {
+        //   path: 'routerNavigation',
+        //   component: ()=> import('@/views/RouterNavigation.vue')
+        // },
         {
           path: 'routerNavigation',
-          component: ()=> import('@/views/RouterNavigation.vue')
-        },
-        {
-          path: 'routerNavigation/:testparams',
-          component: ()=> import('@/views/RouterNavigation.vue')
+          component: () => import('@/views/RouterNavigation.vue')
         },
         {
           path: 'dynamicRouter/:id',
-          component: ()=> import('@/views/DynamicRouter.vue')
+          component: () => import('@/views/DynamicRouter.vue')
         },
         {
           path: 'dynamicRouterByProps/:id',
-          component: ()=> import('@/views/DynamicRouterByProps.vue'),
+          component: () => import('@/views/DynamicRouterByProps.vue'),
           props: (route) => {
-            console.log('route:',route);
+            console.log('route:', route)
             return {
               id: route.params.id
             }
@@ -55,38 +55,50 @@ const router = createRouter({
         },
         {
           path: 'namedview',
-          name:'namedview',
-          component: ()=>import('@/views/NamedView.vue'),
-          children:[
+          name: 'namedview',
+          component: () => import('@/views/NamedView.vue'),
+          children: [
             {
-              path:'c2a',
-              components:{
-                left: ()=>import('@/components/ComponentC.vue'),
-                right: ()=>import('@/components/ComponentA.vue')
+              path: 'c2a',
+              components: {
+                left: () => import('@/components/ComponentC.vue'),
+                right: () => import('@/components/ComponentA.vue')
               }
             },
             {
-              path:'a2b',
-              components:{
-                left: ()=>import('@/components/ComponentA.vue'),
-                right: ()=>import('@/components/ComponentB.vue')
+              path: 'a2b',
+              components: {
+                left: () => import('@/components/ComponentA.vue'),
+                right: () => import('@/components/ComponentB.vue')
               }
             }
           ]
         }
       ]
     },
+    // {
+    //   path:'/newPage/:pathMatch(.*)*',
+    //   redirect:{
+    //     name:'about'
+    //   }
+    // },
     {
-      path:'/newPage/:pathMatch(.*)*',
-      redirect:{
-        name:'about'
+      path: '/:pathMatch(.*)*',
+      component: () => import('@/views/NotFound.vue')
+    }
+  ],
+  linkActiveClass: 'active',
+  scrollBehavior(to, from, savedPosition) {
+    console.log(to,from,savedPosition)
+    if(to.fullPath.match('newPage')){
+      return{
+        top:0
       }
-    },
-    {
-      path:'/:pathMatch(.*)*',
-      component: ()=> import('@/views/NotFound.vue')
-    },
-  ]
+    }
+    return{
+      top:500
+    }
+  }
 })
 
 export default router
