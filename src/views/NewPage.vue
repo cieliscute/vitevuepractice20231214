@@ -27,6 +27,9 @@
           <RouterLink to="/newpage/pinia" class="list-group-item list-group-item-action">
             PiniaPractice
           </RouterLink>
+          <RouterLink to="/newpage/piniaComposition" class="list-group-item list-group-item-action">
+            PiniaPracticeComposition
+          </RouterLink>
         </div>
       </div>
       <div class="col-9">

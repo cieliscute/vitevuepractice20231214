@@ -77,6 +77,10 @@ const routes = [
         path: 'pinia',
         component: () => import('@/views/PiniaPractice.vue')
       },
+      {
+        path: 'piniaComposition',
+        component: () => import('@/views/PiniaPracticeComposition.vue')
+      },
     ]
   },
   // {
